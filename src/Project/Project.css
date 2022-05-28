@@ -1,0 +1,48 @@
+.ProjectComponent {
+    margin-left: 10px
+}
+
+.ownProjectComponent {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.ownProjectDescription {
+    margin-top: 10px;
+}
+
+.osuRandomTournamentComponent {
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.otherProjectsComponent {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.technoIcons {
+    display:flex;
+    align-items: center;
+}
+
+.jokerBotDescription {
+    padding-bottom: 10px;
+}
+
+.githubInfo {
+    display: flex;
+    align-items: center;
+}
+
+.pippiTrackLogo {
+    border-radius: 50%;
+    width: 10%;
+    padding-right: 10px;
+    
+}
+
+.pippiTrackTitle {
+    display: flex;
+    align-items: center;
+}

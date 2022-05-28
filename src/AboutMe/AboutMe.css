@@ -1,0 +1,11 @@
+.AboutMeComponent {
+    margin: 20px 10px 10px 10px;
+}
+
+.AboutMeDescription {
+    margin-top: 10px;
+}
+.MuiTypography-body1 {
+    font-size: 1.2rem;
+    text-indent: 40px;
+}
