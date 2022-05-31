@@ -219,16 +219,20 @@ function PippiTrack({ lang, translation }) {
     return (
         <div>
             <a href={translation.link} className="pippiTrackTitle">
-                <img src={pippiTrackPNG} className="pippiTrackLogo"/>
-                <strong>{translation.title}</strong>
+                <img src={pippiTrackPNG} className="pippiTrackLogo" alt="Pippi Track" />
+                <Typography
+                    variant='h6'
+                >
+                    <strong>{translation.title}</strong>
+                </Typography>
             </a>
             <div>
-            <Typography
-                variant='body1'
-                align='justify'
-            >
-                {translation.description[lang]}
-            </Typography>
+                <Typography
+                    variant='body1'
+                    align='justify'
+                >
+                    {translation.description[lang]}
+                </Typography>
             </div>
             <div>
                 <div className='technoComponent'>

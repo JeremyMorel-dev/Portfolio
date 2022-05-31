@@ -1,23 +1,34 @@
 import { Typography } from '@mui/material';
-import translation from './WelcomeTranslation'
+import translation from './WelcomeTranslation';
+import AppBar from '@mui/material/AppBar';
+import Container from '@mui/material/Container';
 import '../App.css';
 import './Welcome.css';
 
-function Navbar ({ lang }) {
+function Welcome ({ lang }) {
     return (
-        <div className='WelcomeComponent'>
+    <AppBar 
+        position="fixed"
+        color="inherit"
+        className="welcomeComponent"
+    >
+      <Container maxWidth="xl">
             <Typography
-                variant='h4'
+                variant='h5'
+                align='center'
             >
-                <strong>{translation.welcome[lang]}</strong>
+                {translation.welcome[lang]}
             </Typography>
             <Typography
-                variant='body1'
+                variant='body2'
+                align='center'
+                fontSize={12}
             >
                 {translation.firstLine[lang]}
             </Typography>
-        </div>
+      </Container>
+    </AppBar>
     )
 }
 
-export default Navbar;
+export default Welcome;

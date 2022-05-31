@@ -1,6 +1,6 @@
 import './App.css';
 import AboutMe from './AboutMe/AboutMe.js';
-import Navbar from './Welcome/Welcome';
+import Welcome from './Welcome/Welcome';
 import Project from './Project/Project';
 function App () {
   var lang;
@@ -13,7 +13,7 @@ function App () {
 
   return (
     <div className="App">
-      <Navbar
+      <Welcome
         lang={lang}
       />
       <AboutMe
