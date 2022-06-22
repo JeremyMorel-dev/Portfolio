@@ -1,26 +1,28 @@
+import React from 'react';
 import './App.css';
 import AboutMe from './AboutMe/AboutMe.js';
 import Welcome from './Welcome/Welcome';
 import Project from './Project/Project';
+import i18n from './i18n';
+import { useTranslation } from 'react-i18next';
 function App () {
   var lang;
   const browserLanguage = window.navigator.language;
-  if (browserLanguage !== "fr-FR") {
-    lang = "en";
-  } else {
-    lang = browserLanguage;
-  };
-
+  const { t, i18n } = useTranslation();
+  //i18n.changeLanguage(browserLanguage.slice(0,2));
   return (
     <div className="App">
       <Welcome
-        lang={lang}
+        t={t}
+        i18n={i18n}
       />
       <AboutMe
-        lang={lang}
+        t={t}
+        i18n={i18n}
       />
       <Project
-        lang={lang}
+        t={t}
+        i18n={i18n}
       />
     </div>
   );

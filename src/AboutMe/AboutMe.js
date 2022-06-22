@@ -1,14 +1,14 @@
 import React from 'react';
 import { Typography } from '@mui/material';
-import translation from './AboutMeTranslation.js'
+import { FaVuejs, FaReact, FaNodeJs } from "react-icons/fa";
 import '../App.css';
 import './AboutMe.css'
 
-function AboutMe ({ lang }) {
+function AboutMe ({ t, i18n }) {
     return (
         <div className="AboutMeComponent">
             <Typography variant="h4">
-                <strong>{translation.title[lang]}</strong>
+                <strong>{t('aboutMe.title')}</strong>
             </Typography>
             <Typography 
                 variant="body1"
@@ -16,7 +16,7 @@ function AboutMe ({ lang }) {
                 align="justify"
                 gutterBottom
             >
-                {translation.description[lang]}
+                {t('aboutMe.description')}
             </Typography>
             <Typography
                 variant="body1"
@@ -24,7 +24,7 @@ function AboutMe ({ lang }) {
                 align="justify"
                 gutterBottom
             >
-                {translation.descriptionHobby[lang]}
+                {t('aboutMe.descriptionHobby')}
             </Typography>
         </div>
     );

@@ -1,5 +1,3 @@
-import translation from './ProjectTranslation'
-import '../App.css';
 import './Project.css';
 import { Typography } from '@mui/material';
 import { DiGithubBadge, DiJavascript1, DiPython } from "react-icons/di";
@@ -7,248 +5,184 @@ import { FaVuejs, FaReact, FaNodeJs } from "react-icons/fa";
 import { SiTypescript } from "react-icons/si"
 import pippiTrackPNG from "../projectLogo/pippitrack.png"
 
-function Project ({ lang }) {
+const ownProjects = [{
+        acronym: "ort",
+        projects: [{
+                acronym: "ortWebsite",
+                technoUsed: [<DiJavascript1 size={48} />, <FaVuejs size={48} />, <DiPython size={48} />]
+            },
+            {
+                acronym: "ortBot",
+                technoUsed: [<DiJavascript1 size={48} />, <FaNodeJs size={48} />]
+            }],
+    },
+    {
+        acronym: "holoArt",
+        technoUsed: [<DiJavascript1 size={48} />, <FaReact size={48} />, <FaNodeJs size={48} />]
+    }];
+
+const otherProjects = [{
+        acronym: "pippiTrack",
+        logo: pippiTrackPNG,
+        technoUsed: [<SiTypescript size={48} />]
+    }]
+function Project ({ t, i18n }) {
     return (
         <div className="ProjectComponent">
             <Typography
                 variant='h4'
             >
-                <strong>{translation.title[lang]}</strong>
+                <strong>{t('projects.title')}</strong>
             </Typography>
             <OwnProject
-                lang={lang}
-                translation={translation.ownProject}
+                t={t}
+                i18n={i18n}
             />
              <OtherProjects
-                lang={lang}
-                translation={translation.participateProject}
+                t={t}
+                i18n={i18n}
             />
         </div>
     )
 }
 
-function OwnProject( {lang, translation }) {
+function OwnProject({ t, i18n }) {
     return (
         <div className='ownProjectComponent'>
             <Typography
                 variant='h5'
             >
-                <strong>{translation.title[lang]}</strong>
+                <strong>{t('projects.ownTitle')}</strong>
             </Typography>
             <Typography
                 variant="body1"
                 className='ownProjectDescription'    
             >
-                {translation.description[lang]}
+                {t('projects.ownDescription')}
             </Typography>
-            <OsuRandomTournament 
-                lang={lang}
-                translation={translation.ort}
-            />
-            <HoloArt
-                lang={lang}
-                translation={translation.holoArt}
-            />
+            {ownProjects.map(project =>{
+                    return (
+                        <Subject
+                                t={t}
+                                i18n={i18n}
+                                acronym={project.acronym}
+                                projects={project.projects}
+                                technoUsed={project.technoUsed}
+                                logo={project.logo}
+                                key={project.acronym}
+                        />
+                    )
+                }
+            )}
         </div>
     )
 }
 
-function OtherProjects({ lang, translation }) {
+function OtherProjects({ t, i18n }) {
     return (
         <div className='otherProjectsComponent'>
             <Typography
                 variant='h5'
             >
-                <strong>{translation.title[lang]}</strong>
+                <strong>{t('projects.othersTitle')}</strong>
             </Typography>
-            <Typography>{translation.description[lang]}</Typography>
-            <PippiTrack
-                lang={lang}
-                translation={translation.pippiTrack}
-            />
+            <Typography>{t('projects.othersDescription')}</Typography>
+            {otherProjects.map(project =>{
+                    return (
+                        <Subject
+                                t={t}
+                                i18n={i18n}
+                                acronym={project.acronym}
+                                projects={project.projects}
+                                technoUsed={project.technoUsed}
+                                logo={project.logo}
+                                key={project.acronym}
+                        />
+                    )
+                }
+            )}
         </div>
     )
 }
+function Subject({ t, i18n, acronym, projects, technoUsed, logo }) {
+    let technoComp;
+    let logoComp;
+    let subProjectComp;
+    if (technoUsed) {
+        technoComp = <SubjectInfo 
+                        t={t}
+                        i18n={i18n}
+                        acronym={acronym}
+                        technoUsed={technoUsed}
+                    />
+    } else {
+        technoComp = "";
+    }
 
-function HoloArt({ lang, translation }) {
-    return (
-        <div className='osuRandomTournamentComponent'>
-            <Typography
-                variant='h6'
-            >
-                <strong>{translation.title}</strong>
-            </Typography>
-            <Typography
-                variant='body1'
-                align='justify'
-            >
-                {translation.description[lang]}
-            </Typography>
-            <div>
-                <div className='technoComponent'>
-                    <div className='technoIcons'>
-                        <div>
-                            <DiJavascript1 size={48} />
-                        </div>
-                        <div>
-                            <FaReact size={48} />
-                        </div>
-                        <div>
-                            <FaNodeJs size={48} />
-                        </div>
-                    </div>
-                </div>
-                <div className='githubInfo'>
-                    <div>
-                    <DiGithubBadge size={48} />
-                    </div>
-                    <div>
-                        <span>{translation.githubLink[lang]}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
-}
+    if (logo) {
+        logoComp = <img src={logo} alt={acronym} className='logo' />
+    } else {
+        logoComp = "";
+    }
 
-function OsuRandomTournament({ lang, translation }) {
+    if (projects) {
+        subProjectComp = projects.map(project => {
+            return <Subject
+                        t={t}
+                        i18n={i18n}
+                        acronym={project.acronym}
+                        technoUsed={project.technoUsed}
+                        key={project.acronym}
+                    />
+        })
+    } else {
+        subProjectComp = "";
+    }
     return (
-        <div className='osuRandomTournamentComponent'>
-            <Typography
-                variant='h6'
-            >
-                <strong>{translation.title}</strong>
-            </Typography>
-            <Typography
-                variant='body1'
-                align='justify'
-            >
-                {translation.description[lang]}
-            </Typography>
-            <OrtJokerBot
-                lang={lang}
-                translation={translation.jokerBot}
-            />
-            <OrtWebsite
-                lang={lang}
-                translation={translation.ortWebsite}
-            />
-        </div>
-    )
-}
-
-function OrtJokerBot( { lang, translation }) {
-    return (
-        <div>
-            <Typography 
-                variant='body1'
-            >
-                <strong>{translation.title}</strong>
-            </Typography>
-            <Typography
-                variant='body1'
-                align='justify'
-                className='jokerBotDescription'
-            >
-                {translation.description[lang]}
-            </Typography>
-            <div>
-                <div className='technoComponent'>
-                    <div className='technoIcons'>
-                        <div>
-                            <DiJavascript1 size={48} />
-                        </div>
-                    </div>
-                </div>
-                <div className='githubInfo'>
-                    <div>
-                    <DiGithubBadge size={48} />
-                    </div>
-                    <div>
-                    <a href={translation.githubLink} className='githubLink'>GitHub</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-function OrtWebsite({ lang, translation }) {
-    return (
-        <div>
-            <Typography 
-                variant='body1'
-            >
-                <strong>{translation.title}</strong>
-            </Typography>
-            <Typography
-                variant='body1'
-                align='justify'
-                className='ortWebsiteDescription'
-            >
-                {translation.description[lang]}
-            </Typography>
-            <div>
-                <div className='technoComponent'>
-                    <div className='technoIcons'>
-                        <div>
-                            <DiJavascript1 size={48} />
-                        </div>
-                        <div>
-                            <FaVuejs size={48} />
-                        </div>
-                        <div>
-                            <DiPython size={48} />
-                        </div>
-                    </div>
-                </div>
-                <div className='githubInfo'>
-                    <div>
-                    <DiGithubBadge size={48} />
-                    </div>
-                    <div>
-                    <a href={translation.githubLink} className='githubLink'>GitHub</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-function PippiTrack({ lang, translation }) {
-    return (
-        <div>
-            <a href={translation.link} className="pippiTrackTitle">
-                <img src={pippiTrackPNG} className="pippiTrackLogo" alt="Pippi Track" />
+        <div className='subjectComponent'>
+            <div className='subjectInfo'>
+                {logoComp}
                 <Typography
                     variant='h6'
                 >
-                    <strong>{translation.title}</strong>
+                    <strong>{t("projects."+acronym+".title")}</strong>
                 </Typography>
-            </a>
-            <div>
-                <Typography
-                    variant='body1'
-                    align='justify'
-                >
-                    {translation.description[lang]}
-                </Typography>
+                
             </div>
-            <div>
-                <div className='technoComponent'>
-                    <div className='technoIcons'>
-                        <div>
-                            <SiTypescript size={48} />
-                        </div>
-                    </div>
+            <Typography
+                variant='body1'
+                align='justify'
+            >
+                {t("projects."+acronym+".description")}
+            </Typography>
+            {subProjectComp}
+            {technoComp}
+        </div>
+    )
+}
+
+function SubjectInfo({ t, i18n, acronym, technoUsed }) {
+    return ( 
+        <div>
+            <div className='technoComponent'>
+                <div className='technoIcons'>
+                    {
+                        technoUsed.map(techno => {
+                            return (
+                                <div>
+                                    {techno}
+                                </div>
+                            )
+                        })
+                    }
                 </div>
-                <div className='githubInfo'>
-                    <div>
+            </div>
+            <div className='githubInfo'>
+                <div>
                     <DiGithubBadge size={48} />
-                    </div>
-                    <div>
-                    <a href={translation.githubLink} className='githubLink'>GitHub</a>
-                    </div>
+                </div>
+                <div>
+                    <a href={t("projects."+acronym+".githubLink")}>Link</a>
                 </div>
             </div>
         </div>
