@@ -5,9 +5,9 @@ import './Welcome.css';
 
 function Welcome ({ t, i18n }) {
     return (
-    <AppBar 
-        position="fixed"
+    <AppBar
         color="inherit"
+        position="static"
         className="welcomeComponent"
     >
       <Container maxWidth="xl">
@@ -15,7 +15,7 @@ function Welcome ({ t, i18n }) {
                 variant='h5'
                 align='center'
             >
-                {t('welcome.welcome')}
+                <strong>{t('welcome.welcome')}</strong>
             </Typography>
             <Typography
                 variant='body2'
