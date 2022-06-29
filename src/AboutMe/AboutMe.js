@@ -1,10 +1,12 @@
 import React from 'react';
 import { Typography } from '@mui/material';
-import { FaVuejs, FaReact, FaNodeJs } from "react-icons/fa";
+import i18n from '../i18n';
+import { useTranslation } from 'react-i18next';
 import '../App.css';
 import './AboutMe.css'
 
-function AboutMe ({ t, i18n }) {
+function AboutMe () {
+    const { t, i18n } = useTranslation();
     return (
         <div className="AboutMeComponent">
             <Typography variant="h4">

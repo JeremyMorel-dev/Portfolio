@@ -1,4 +1,6 @@
 import './Project.css';
+import i18n from '../i18n';
+import { useTranslation } from 'react-i18next';
 import { Typography } from '@mui/material';
 import { DiGithubBadge, DiJavascript1, DiPython } from "react-icons/di";
 import { FaVuejs, FaReact, FaNodeJs } from "react-icons/fa";
@@ -26,7 +28,9 @@ const otherProjects = [{
         logo: pippiTrackPNG,
         technoUsed: [<SiTypescript size={48} />]
     }]
-function Project ({ t, i18n }) {
+
+function Project () {
+    const { t, i18n } = useTranslation();
     return (
         <div className="ProjectComponent">
             <Typography
@@ -46,7 +50,8 @@ function Project ({ t, i18n }) {
     )
 }
 
-function OwnProject({ t, i18n }) {
+function OwnProject() {
+    const { t, i18n } = useTranslation();
     return (
         <div className='ownProjectComponent'>
             <Typography
@@ -63,8 +68,6 @@ function OwnProject({ t, i18n }) {
             {ownProjects.map(project =>{
                     return (
                         <Subject
-                                t={t}
-                                i18n={i18n}
                                 acronym={project.acronym}
                                 projects={project.projects}
                                 technoUsed={project.technoUsed}
@@ -78,7 +81,8 @@ function OwnProject({ t, i18n }) {
     )
 }
 
-function OtherProjects({ t, i18n }) {
+function OtherProjects() {
+    const { t, i18n } = useTranslation();
     return (
         <div className='otherProjectsComponent'>
             <Typography
@@ -90,8 +94,6 @@ function OtherProjects({ t, i18n }) {
             {otherProjects.map(project =>{
                     return (
                         <Subject
-                                t={t}
-                                i18n={i18n}
                                 acronym={project.acronym}
                                 projects={project.projects}
                                 technoUsed={project.technoUsed}
@@ -104,14 +106,13 @@ function OtherProjects({ t, i18n }) {
         </div>
     )
 }
-function Subject({ t, i18n, acronym, projects, technoUsed, logo }) {
+function Subject({ acronym, projects, technoUsed, logo }) {
+    const { t, i18n } = useTranslation();
     let technoComp;
     let logoComp;
     let subProjectComp;
     if (technoUsed) {
-        technoComp = <SubjectInfo 
-                        t={t}
-                        i18n={i18n}
+        technoComp = <SubjectInfo
                         acronym={acronym}
                         technoUsed={technoUsed}
                     />
@@ -128,8 +129,6 @@ function Subject({ t, i18n, acronym, projects, technoUsed, logo }) {
     if (projects) {
         subProjectComp = projects.map(project => {
             return <Subject
-                        t={t}
-                        i18n={i18n}
                         acronym={project.acronym}
                         technoUsed={project.technoUsed}
                         key={project.acronym}
@@ -161,7 +160,8 @@ function Subject({ t, i18n, acronym, projects, technoUsed, logo }) {
     )
 }
 
-function SubjectInfo({ t, i18n, acronym, technoUsed }) {
+function SubjectInfo({ acronym, technoUsed }) {
+    const { t, i18n } = useTranslation();
     return ( 
         <div>
             <div className='technoComponent'>

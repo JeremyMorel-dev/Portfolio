@@ -1,9 +1,12 @@
 import { Typography } from '@mui/material';
+import i18n from '../i18n';
+import { useTranslation } from 'react-i18next';
 import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
 import './Welcome.css';
 
-function Welcome ({ t, i18n }) {
+function Welcome () {
+    const { t, i18n } = useTranslation();
     return (
     <AppBar
         color="inherit"
