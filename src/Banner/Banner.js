@@ -3,9 +3,9 @@ import i18n from '../i18n';
 import { useTranslation } from 'react-i18next';
 import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
-import './Welcome.css';
+import './Banner.css';
 
-function Welcome () {
+function Banner () {
     const { t, i18n } = useTranslation();
     return (
     <AppBar
@@ -18,18 +18,18 @@ function Welcome () {
                 variant='h5'
                 align='center'
             >
-                <strong>{t('welcome.welcome')}</strong>
+                <strong>{t('banner.welcome')}</strong>
             </Typography>
             <Typography
                 variant='body2'
                 align='center'
                 fontSize={12}
             >
-                {t('welcome.firstLine')}
+                {t('banner.firstLine')}
             </Typography>
       </Container>
     </AppBar>
     )
 }
 
-export default Welcome;
+export default Banner;

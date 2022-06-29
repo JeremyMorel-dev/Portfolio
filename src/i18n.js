@@ -20,6 +20,7 @@ const resources = {
             "othersTitle": "Other Projects",
             "ownDescription": "Here are my personal project i worked on",
             "othersDescription": "You may find here every project I worked on which are not my personal project but other's one",
+            "link": "Link",
             "holoArt": {
                 "title": "Holo Art",
                 "description": "It gets artwork based on every hashtag of each Hololive's VTuber from Twitter and display it on a website. Current work in progress project.",
@@ -49,7 +50,7 @@ const resources = {
   },
   fr: {
     translation: {
-        "welcome": {
+        "banner": {
             "welcome": "Bienvenue sur le portfolio de Jérémy Morel !",
             "firstLine": "Vous pourrrez, ici découvrir mon univers, qui est aujourd'hui une grande partie de moi."
         },
@@ -59,11 +60,12 @@ const resources = {
             "descriptionHobby": "À côté de ça, je suis passionné donc, de jeux vidéo comme dit précédemment, mais également du Japon et de sa riche culture ainsi que la musique en générale."
         },
         "projects": {
-            "title": "Projects",
-            "ownTitle": "Projects personnels",
-            "othersTitle": "Autres projects",
+            "title": "Projets",
+            "ownTitle": "Projets personnels",
+            "othersTitle": "Autres projets",
             "ownDescription": "Vous pouvez trouver ici les différents projets sur lesquels j'ai travaillé",
             "othersDescription": "Vous pourrez trouver ici les projets sur lesquels j'ai pu travaillé, et qui ne sont pas les miens à la base.",
+            "link": "Lien",
             "holoArt": {
                 "title": "Holo Art",
                 "description": "Récupère des artworks basé sur chaque hashtag de tous les VTuber d'Hololive sur Twitter et les affiche sur un site web. Projet en cours de développement.",

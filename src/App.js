@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import AboutMe from './AboutMe/AboutMe.js';
-import Welcome from './Welcome/Welcome';
+import Banner from './Banner/Banner';
 import Project from './Project/Project';
 import i18n from './i18n';
 import { useTranslation } from 'react-i18next';
@@ -12,7 +12,7 @@ function App () {
   //i18n.changeLanguage(browserLanguage.slice(0,2));
   return (
     <div className="App">
-      <Welcome
+      <Banner
         t={t}
         i18n={i18n}
       />

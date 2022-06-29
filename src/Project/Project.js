@@ -182,7 +182,7 @@ function SubjectInfo({ acronym, technoUsed }) {
                     <DiGithubBadge size={48} />
                 </div>
                 <div>
-                    <a href={t("projects."+acronym+".githubLink")}>Link</a>
+                    <a href={t("projects."+acronym+".githubLink")}>{t('projects.link')}</a>
                 </div>
             </div>
         </div>
