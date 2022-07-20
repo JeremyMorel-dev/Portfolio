@@ -38,14 +38,8 @@ function Project () {
             >
                 <strong>{t('projects.title')}</strong>
             </Typography>
-            <OwnProject
-                t={t}
-                i18n={i18n}
-            />
-             <OtherProjects
-                t={t}
-                i18n={i18n}
-            />
+            <OwnProject/>
+             <OtherProjects/>
         </div>
     )
 }

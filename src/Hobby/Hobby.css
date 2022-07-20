@@ -1,0 +1,12 @@
+.hobbyComponent {
+    margin: 10px;
+}
+
+.osuComponent {
+    display: flex;
+    margin-top: 10px;
+}
+
+.osuText {
+    margin: auto;
+}
